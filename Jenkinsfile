@@ -36,7 +36,7 @@ node {
 	       sh "docker login -u hacer572 -p ${dockerHubPwd}"
 	       
       }
-	    sh 'docker push hacer572/hajer/nodeapp'
+	    sh 'docker push hacer572/myapp:2.0.0'
                 echo "Trying to Push Docker Build to DockerHub"
     }
 }
