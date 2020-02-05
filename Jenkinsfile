@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("hajer/nodeapp")    /* anandr72/nodeapp --> is the name given to the created image*/
+        app = docker.build("hajer/nodeapp")    /* hajer/nodeapp --> is the name given to the created image*/
     }
 
     stage('Test image') {
