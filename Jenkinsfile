@@ -10,7 +10,8 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("hajer/nodeapp")    /* hajer/nodeapp --> is the name given to the created image*/
+      /*  app = docker.build("hajer/nodeapp")    /* hajer/nodeapp --> is the name given to the created image*/
+	    sh 'docker build -t hajer572/myapp:2.0.0 .'  /*t for tagging  , hajer572 is the username in dockerhub
     }
 
     stage('Test image') {
