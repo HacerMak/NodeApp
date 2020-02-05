@@ -14,12 +14,18 @@ node {
 	    sh 'docker build -t hajer572/myapp:2.0.0 .'  /*t for tagging  , hajer572 is the username in dockerhub*/
     }
 
-    stage('Test image') {
+   /* stage('Test image') {
         
         app.inside {
             echo "Tests passed"
         }
-    }
+    }*/
+
+     
+    stage('Test') {
+            // sh "yarn test -u"
+        }
+	
 
     stage('Push image') {
         /* 
