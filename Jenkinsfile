@@ -24,10 +24,12 @@ node {
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-            } 
+       withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+   
+	       sh "docker login -u hacer572 -p ${dockerHubPwd}"
+	       
+      }
+	    sh 'docker push hacer572/hajer/nodeapp'
                 echo "Trying to Push Docker Build to DockerHub"
     }
 }
