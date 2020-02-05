@@ -11,7 +11,7 @@ node {
         /* This builds the actual image */
 
       /*  app = docker.build("hajer/nodeapp")    /* hajer/nodeapp --> is the name given to the created image*/
-	    sh 'docker build -t hajer572/myapp:2.0.0 .'  /*t for tagging  , hajer572 is the username in dockerhub*/
+	    sh 'docker build -t hajer572/my-app:2.0.0 .'  /*t for tagging  , hajer572 is the username in dockerhub*/
     }
 
    /* stage('Test image') {
@@ -36,7 +36,7 @@ node {
 	       sh "docker login -u hacer572 -p ${dockerHubPwd}"
 	       
       }
-	    sh 'docker push hacer572/myapp:2.0.0'
+	    sh 'docker push hacer572/my-app:2.0.0'
                 echo "Trying to Push Docker Build to DockerHub"
     }
 }
