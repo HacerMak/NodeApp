@@ -47,8 +47,7 @@ node {
 		
  stage('Docker push')
         {
-            steps
-            {
+            
                 script
                 {
                     // login to ECR - for now it seems that that the ECR Jenkins plugin is not performing the login as expected. I hope it will in the future.
@@ -59,7 +58,7 @@ node {
                         docker.image(IMAGE).push()
                     }
                 }
-            }
+            
         }
 	
 	
