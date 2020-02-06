@@ -27,16 +27,24 @@ node {
         }
 	
 
-    stage('Push image') {
-        /* 
-			You would need to first register with DockerHub before you can push images to your account
-		*/
-       withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+   /* stage('Push image') {
+        /* You would need to first register with DockerHub before you can push images to your account*/
+		
+     /*  withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
    
 	       sh "docker login -u hacer572 -p ${dockerHubPwd}"
 	       
       }
 	    sh 'docker push hacer572/my-app:2.0.0'
                 echo "Trying to Push Docker Build to DockerHub"
-    }
+    }*/
+	
+	/*395453232904.dkr.ecr.eu-central-1.amazonaws.com/drsa-app-core */
+	stage('Push image') {
+        docker.withRegistry('https://395453232904.dkr.ecr.eu-central-1.amazonaws.com', 'eu-central-1:push-To-ECR') {
+            sh "docker push https://395453232904.dkr.ecr.eu-central-1.amazonaws.com/hacer572/my-app:2.0.0"
+        }
+	
+	
+	
 }
