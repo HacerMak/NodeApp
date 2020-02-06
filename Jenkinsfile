@@ -55,7 +55,14 @@ stage('Push image') {
         }
     }
 
-	
+post
+    {
+        always
+        {
+            // make sure that the Docker image is removed
+            sh "docker rmi myweb-app:3.0.0 | true"
+        }
+    }	
 	
 	
 }
