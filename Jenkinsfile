@@ -11,7 +11,7 @@ node {
         /* This builds the actual image */
 
       /*  app = docker.build("hajer/nodeapp")    /* hajer/nodeapp --> is the name given to the created image*/
-	    sh 'docker build -t hacer572/my-app:2.0.0 .'  /*t for tagging  , hajer572 is the username in dockerhub*/
+	    sh 'docker build -t hacer572/my-app:3.0.0 .'  /*t for tagging  , hajer572 is the username in dockerhub*/
     }
 
    /* stage('Test image') {
@@ -55,7 +55,7 @@ node {
                     // Push the Docker image to ECR
                     docker.withRegistry('https://395453232904.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:push-To-ECR')
                     {
-                        docker.image(IMAGE).push()
+                        docker.image(hacer572/my-app:3.0.0).push()
                     }
                 }
             
