@@ -6,7 +6,13 @@ node {
 
         checkout scm
     }
-
+ environment 
+    {
+        
+        IMAGE = 'myweb-app:3.0.0'
+        
+    }
+	
     stage('Build image') {
         /* This builds the actual image */
 
@@ -57,7 +63,7 @@ node {
                     // Push the Docker image to ECR
                     docker.withRegistry('https://395453232904.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:push-To-ECR')
                     {
-                        docker.image('myweb-app:3.0.0').push()
+                        docker.image(IMAGE).push()
                     }
                 }
             
