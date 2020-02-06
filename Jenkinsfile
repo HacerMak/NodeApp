@@ -50,7 +50,7 @@ node {
 		
 stage('Push image') {
         docker.withRegistry('https://395453232904.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:push-To-ECR') {
-            sh "docker push 395453232904.dkr.ecr.eu-central-1.amazonaws.com/myweb-app:3.0.0"
+            sh "docker push 395453232904.dkr.ecr.eu-central-1.amazonaws.com/drsa-app-core"
         }
     }
 
