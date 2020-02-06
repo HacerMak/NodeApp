@@ -48,23 +48,11 @@ node {
             sh "docker push https://395453232904.dkr.ecr.eu-central-1.amazonaws.com/hacer572/my-app:2.0.0"
         }} */
 		
- stage('Docker push')
-        {
-            
-                script
-                {
-                    // login to ECR - for now it seems that that the ECR Jenkins plugin is not performing the login as expected. I hope it will in the future.
-                 /*   sh("eval \$(aws ecr get-login --no-include-email | sed 's|https://||')")*/
-                    // Push the Docker image to ECR
-                    docker.withRegistry('https://395453232904.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:push-To-ECR')
-                    {
-                        docker.image('myweb-app:3.0.0').push()
-                    }
-                }
-            
+stage('Push image') {
+        docker.withRegistry('https://395453232904.dkr.ecr.eu-central-1.amazonaws.com', 'ecr:eu-central-1:push-To-ECR') {
+            sh "docker push 395453232904.dkr.ecr.eu-central-1.amazonaws.com/myweb-app:3.0.0"
         }
-	
-	
+    }
 
 	
 	
