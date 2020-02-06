@@ -45,6 +45,6 @@ node {
             sh "docker push https://395453232904.dkr.ecr.eu-central-1.amazonaws.com/hacer572/my-app:2.0.0"
         }
 	
-	
+	}
 	
 }
